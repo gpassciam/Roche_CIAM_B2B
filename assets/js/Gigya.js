@@ -365,11 +365,6 @@ function NewUserStore(response) {
     ProcessDB(DBName, Table, response, UID);
 }
 
-function setflag(flag) {
-    
-   
-        sessionStorage.setItem("adminloginflag", flag);
-}
 
 
 function AdminLogin(flag) {
@@ -381,7 +376,7 @@ function AdminLogin(flag) {
             sessionStorage.setItem("AdminSession", document.getElementById("txtusr").value);
 
          
-                window.location = "/Admin/AdminLanding.html";
+                window.location = "Admin/AdminLanding.html";
             
         }
 
