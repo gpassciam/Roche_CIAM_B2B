@@ -8,8 +8,8 @@ function load() {
 
 function Adminload() {
 
-    $("#header").load("/Admin/Header.html");
-    $("#footer").load("/Admin/Footer.html");
+    $("#header").load("AdminHeader.html");
+    $("#footer").load("AdminFooter.html");
 }
 
 
@@ -274,7 +274,7 @@ function AdminSignOut() {
 
     sessionStorage.clear();
             //alert('Logged out');
-    window.location.href = '../index.html';
+    window.location.href = 'index.html';
 
 }
 
@@ -357,6 +357,25 @@ function CheckLogin() {
     return session_UID;
 }
 
+function AdminCheckLogin() {
+    //let flag;
+    var session_UID = sessionStorage.getItem("AdminSession");
+
+    if (session_UID == null || typeof session_UID == "undefined") {
+        //flag = 0;
+        alert('Please Login to Proceed');
+        window.location = 'index.html';
+
+    }
+    else {
+        //console.log(session_UID);
+        //window.location.href = page;
+        //flag = 1;
+    }
+
+    return session_UID;
+}
+
 function NewUserStore(response) {
 
     let UID = response.UID;
@@ -376,7 +395,7 @@ function AdminLogin(flag) {
             sessionStorage.setItem("AdminSession", document.getElementById("txtusr").value);
 
          
-                window.location = "Admin/AdminLanding.html";
+                window.location = "AdminLanding.html";
             
         }
 
