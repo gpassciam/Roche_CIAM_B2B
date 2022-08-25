@@ -2109,11 +2109,11 @@ p-section {
     zoom: 1;
     background-color: #1371B9;
     line-height: 38px;
-    padding: 0 10px 0 11px;
     border-radius: 3px 3px 0px 0px;
     display: flex;
     height: 35px;
     align-items: center;
+    padding: 15px;
 }
 
 .gigya-header {
