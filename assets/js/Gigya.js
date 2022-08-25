@@ -155,8 +155,8 @@ function SignUpScreen(flag) {
         if (flag == 'UserRegistration') {
 
             gigya.accounts.showScreenSet({
-                screenSet: 'Online_Medical-RegistrationLogin',
-                startScreen: 'gigya-register-screen',
+                screenSet: 'GlobalCIAMPOC-OrganizationUserRegistration',
+                startScreen: 'gigya-org-register-screen',
                 customLang: customLangParams
                 //onHide: hide
                 //containerID: 'divsignup'

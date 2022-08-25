@@ -36,24 +36,25 @@
     <div class="modal">
         <div class="content">
             <div class="close"></div>
+            
 
-            <p-section id="p-contact" class="p-contact ">
-                <div class="info">
-                    <h3>Login as Admin</h3>
-                    
+
+            <div>
+                <div class="gigya-screen-dialog-top">
+                    <h3 class="gigya-header">Admin Login</h3>
+
                 </div>
                 <br />
-                <table style="margin-left:20%">
-                    <tr><td>UserName<br /><input id="txtusr" type="text" /></td></tr>
-                    <tr><td>Password<br /><input id="txtpass" type="password"/></td></tr>
-                    
-                    <tr>
-                    <td><br /><br /><button  onclick="AdminLogin('login');" class="appointment-btn">Login</button>
-                    <button onclick="AdminLogin('clear');" class="appointment-btn">Clear</button></td>
-                    </tr>
-                </table>
-
-            </p-section>
+                <div class="gigya-padding-bottom">
+                    <input id="txtusr" class="gigya-textbox" type="text" name="UserName" placeholder="UserName" />
+                    <input id="txtpass" class="gigya-textbox" type="password" placeholder="Password" />
+                    <br />
+                    <br />
+                    <button style="margin-left:80px"onclick="AdminLogin('login');" class="appointment-btn">Login</button>
+                    <button onclick="AdminLogin('clear');" class="appointment-btn">Clear</button>
+                </div>
+               
+            </div>
 
 
 
