@@ -232,7 +232,7 @@ p
     border: none;
 }
 
-.appointment-ordering {
+.appointment-ordering-btn {
     /*margin-left: 25px;*/
     background: #1977cc;
     color: #fff;
@@ -242,7 +242,8 @@ p
     
     font-size: 16px small;
     display: inline-block;
-    margin-left : 1300px
+    margin-left : 1300px;
+    border:none
 }
 .appointment-ordering:hover {
     background: #166ab5;
