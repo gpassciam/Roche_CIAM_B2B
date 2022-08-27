@@ -117,9 +117,14 @@
     <script src="assets/js/IndexedDB.js"></script>
     <script src="assets/js/Gigya.js"></script>
     <script type="text/javascript">
+
         var session_UID = CheckLogin();
         alert(session_UID);
         if (session_UID != null || typeof session_UID != "undefined") {
+
+            document.getElementById("tab").style.display = "block";
+        }
+        else {
 
             document.getElementById("tab").style.display = "none";
         }

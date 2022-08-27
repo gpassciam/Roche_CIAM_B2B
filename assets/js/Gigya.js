@@ -73,12 +73,12 @@ function onb2bLogin(response) {
        
         getUID(DBName, Table, UID).then(function (SUID) {
             const Data = SUID.split(",");
-            sessionStorage.setItem("SUID", Data[0]);
+            localStorage.setItem("SUID", Data[0]);
             sessionStorage.setItem("SName", Data[1]);
             //alert(Data[2]);
             sessionStorage.setItem("SProvider", Data[2]);
             sessionStorage.setItem("SOrgName", Data[3]);
-            var session_UID = sessionStorage.getItem("SUID");
+            var session_UID = localStorage.getItem("SUID");
             var session_Name = sessionStorage.getItem("SName");
             if ((session_UID == null || typeof session_UID == "undefined") && errorCode == 0) {
 
@@ -107,9 +107,9 @@ function Getdata(page,UID) {
     let Table = "Users_Info";
     getUID(DBName, Table, UID).then(function (SUID) {
         const Data = SUID.split(",");
-        sessionStorage.setItem("SUID", Data[0]);
+        localStorage.setItem("SUID", Data[0]);
         sessionStorage.setItem("SName", Data[1]);
-        var session_UID = sessionStorage.getItem("SUID");
+        var session_UID = localStorage.getItem("SUID");
         var session_Name = sessionStorage.getItem("SName");
         if (session_UID == null || typeof session_UID == "undefined") {
 
@@ -188,7 +188,7 @@ function opendelegateadmin(orgid) {
 async function Update(response) {
     //console.log("OnUpdate:" + JSON.stringify(response));
     var params = {
-        "UID": sessionStorage.getItem("SUID"),
+        "UID": localStorage.getItem("SUID"),
         "include": "groups,identities-active,identities-all,identities-global,loginIDs,emails,profile,data, password,lastLoginLocation, regSource,irank,rba,subscriptions,userInfo",
         "extraProfileFields": "languages,address,phones, education, honors, publications, patents, certifications, professionalHeadline, bio, industry, specialties, work, skills, religion, politicalView, interestedIn, relationshipStatus, hometown, favorites, followersCount, followingCount, username, locale, verified, timezone, likes, samlData"
     }
@@ -211,7 +211,7 @@ function getAccountInfoResponse(response) {
         var firstName = response.profile.firstName;
         var lastName = response.profile.lastName;
         var UserType = response.data.UserType;
-        var UID = sessionStorage.getItem("SUID");
+        var UID = localStorage.getItem("SUID");
         let DBName = "Users";
         let Table = "Users_Info";
         //var Data = response;
@@ -253,8 +253,9 @@ function SignOut() {
         if (response.errorCode == 0) {
 
             sessionStorage.clear();
-            sessionStorage.setItem("SUID", "");
-            //alert('Logged out');
+            localStorage.clear();
+            alert(localStorage.getItem("SUID"));
+            
             window.location.href = 'index.html';
 
 
@@ -340,7 +341,7 @@ function ChangePassScreen() {
 
 function CheckLogin() {
     //let flag;
-    var session_UID = sessionStorage.getItem("SUID");
+    var session_UID = localStorage.getItem("SUID");
     
     if (session_UID == null || typeof session_UID == "undefined") {
         //flag = 0;
