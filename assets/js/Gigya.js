@@ -254,7 +254,7 @@ function SignOut() {
 
             sessionStorage.clear();
             localStorage.clear();
-            alert(localStorage.getItem("SUID"));
+            //alert(localStorage.getItem("SUID"));
             
             window.location.href = 'index.html';
 
