@@ -61,6 +61,7 @@
         //alert(url);
         var xhr = new XMLHttpRequest();
         //var params = 'querySig=' + query + '_' + abs(now - timestamp) ;
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
         xhr.open('POST', url, true);
 
         //Send the proper header information along with the request
