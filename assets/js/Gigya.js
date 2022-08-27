@@ -252,7 +252,8 @@ function SignOut() {
     function printResponse(response) {
         if (response.errorCode == 0) {
 
-            sessionStorage.clear()
+            sessionStorage.clear();
+            sessionStorage.setItem("SUID", "");
             //alert('Logged out');
             window.location.href = 'index.html';
 
