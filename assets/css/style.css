@@ -2105,7 +2105,7 @@ p-section {
 
         /*Gigya Styles*/
 
-.gigya-screen-dialog-top {
+.gigya-screen-dialog-topa {
     overflow: hidden;
     zoom: 1;
     background-color: #1371B9;
@@ -2149,3 +2149,25 @@ p-section {
     display: flex;
     justify-content: center;
 }
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    .table th {
+        text-align: left;
+        font-family: 'arial';
+        padding: 8px;
+        background-color: dimgrey;
+        color: white
+    }
+
+.table td {
+        text-align: left;
+        font-family: 'Times New Roman';
+        padding: 8px;
+ }
+
+.table tr:nth-child(even) {
+        background-color: #f2f2f2;
+ }

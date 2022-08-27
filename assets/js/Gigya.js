@@ -26,9 +26,7 @@ function SignInScreen(flag) {
 
     if (flag == 'b2b') {
         console.log(flag);
-        localStorage.setItem("485c9a75-2633-4f90-b48d-dd2b3a891d86", "Delegated Admin");
-        localStorage.setItem("cbdc0b70-6d69-4946-8443-060de6fbefbc", "Ordering");
-        localStorage.setItem("8de8cd93-103f-4277-a8df-e7a697d75d14", "Returns");
+        setroles();
         gigya.accounts.showScreenSet({
             screenSet: 'Online_Medical-RegistrationLogin',
             startScreen: 'gigya-login-screen',
@@ -296,7 +294,8 @@ function ForgotPass() {
 }
 
 function passwordreset() {
-    
+
+    //alert('here now');
     document.getElementById('passchangesuccess').onclick = function () {
         SignOut();
     };
@@ -412,5 +411,12 @@ function AdminLogin(flag) {
     }
         
 
+}
+
+function setroles() {
+
+    localStorage.setItem("485c9a75-2633-4f90-b48d-dd2b3a891d86", "Delegated Admin");
+    localStorage.setItem("cbdc0b70-6d69-4946-8443-060de6fbefbc", "Ordering");
+    localStorage.setItem("8de8cd93-103f-4277-a8df-e7a697d75d14", "Returns");
 }
 
