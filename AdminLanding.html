@@ -55,7 +55,7 @@
         //var method = "accounts.search";
         //var query = "SELECT  groups.organizations.orgName FROM accounts WHERE groups.organizations.orgName is not null";
 
-        var query = "SELECT profile.firstName, profile.lastName, profile.email, groups.organizations.orgName, groups.organizations.roles FROM accounts WHERE groups.organizations.orgName is not null";
+        var query = "SELECT profile.firstName, profile.lastName, profile.email, groups.organizations.orgName, groups.organizations.roles,isActive FROM accounts WHERE groups.organizations.orgName is not null";
         //const url = 'https://accounts.us1.gigya.com/accounts.search?apiKey=4_zU_l5sFaCUWaU5W-0KFDzw&secret=JpvRlfmE6xSu%2F%2BSHkU6OdaRY0cuMtwim94iCX3MHEBA%3D&query=SELECT%20profile.firstName,UID%20FROM%20accounts';
         const url = "https://accounts.us1.gigya.com/accounts.search?apiKey=" + apiKey + "&secret=" + secretKey + "&query=" + query;
         //alert(url);
@@ -75,14 +75,15 @@
                     "<th>Last Name</th>" +
                     "<th>Email</th>" +
                     "<th>Organization</th>" +
-                    "<th>Roles</th>" + 
+                    "<th>Roles</th>" +
+                    "<th>Status</th>" +
                     "</tr>";
                 const response = JSON.parse(this.responseText);
                 //console.log((JSON.stringify(this.responseText)));
                 if (response["errorCode"] == 0) {
                     var final;
                     var keys;
-                    
+                    var status;
                     const responses = response["results"];
                     console.log("stringy : " + JSON.stringify(responses));
                     
@@ -91,6 +92,14 @@
                         const [key, value] = entry;
                         //alert(JSON.stringify(value.groups));
                         var roles = value.groups.organizations[0].roles;
+                        if (value.isActive === true) {
+
+                            status = "Enabled";
+                            //alert(status);
+                        }
+                        else {
+                            status = "Disabled";
+                        }
                         //alert(roles);
                         //roles = roles.replace(/"/g, "").replace("[", "").replace("]", "");
                         //alert(roles);
@@ -127,7 +136,8 @@
                             "<td> " + JSON.stringify(value.profile.email).replace(/"/g, "") + "</td >" +
                             "<td> " + JSON.stringify(value.groups.organizations[0].orgName).replace(/"/g, "") + "</td>" +
 
-                            "<td> " + str + "</td>";
+                            "<td> " + str + "</td>" +
+                            "<td> " + status + "</td>"
                         
                         //console.log(JSON.stringify(value));
                         //final = final + JSON.stringify(value.profile);
